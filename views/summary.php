@@ -5,7 +5,7 @@
                     +
                   клиенти_тип_кредитив -> брой продукти * цената на продукта * 0.15
 
-        Очаквана = клиент_тип_кредитив -> брой продукти * цената на продукта * 0.75
+        Очаквана = клиент_тип_кредитив -> брой продукти * цената на продукта * 0.85
                     +
                 клиенти_тип_констигация -> брой продукти * цената на продукта
 
@@ -30,7 +30,7 @@ $result = $connection->query($collectedSumQueryKreditiv);
 $collectedSum += mysqli_fetch_assoc($result)['sum'];
 // echo "collected sum kreditiv: " . $collectedSum;
 
-$expectedSumQueryKreditiv = "SELECT SUM(c.products_count * p.price)*0.75 AS sum
+$expectedSumQueryKreditiv = "SELECT SUM(c.products_count * p.price)*0.85 AS sum
 FROM clients c
 JOIN products p 
 WHERE c.product_id = p.id AND c.type_id = 2 ";
@@ -71,12 +71,3 @@ $totalProducts = mysqli_fetch_assoc($select_query)['sum'];
         </tr>
     </tbody>
 </table>
-<h4>Дата:
-
-    <?php
-    setlocale(LC_ALL, 'bg_BG.utf8');
-    $currentDate = strftime('%d %B %Y г.');
-    echo $currentDate;
-    ?>
-
-</h4>

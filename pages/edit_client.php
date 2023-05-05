@@ -46,7 +46,7 @@ if (!isset($_GET['id'])) {
 
 
 <form action="" method="post" class="p-4 col-10 mx-auto border border-primary" enctype="multipart/form-data">
-    <h1 class="text-center">Добави клиент</h1>
+    <h1 class="text-center">Редактиране на клиент</h1>
 
     <div class="row mb-3">
         <label for="name" class="col-2 col-form-label">Име</label>
@@ -88,7 +88,7 @@ if (!isset($_GET['id'])) {
 
                 while ($row = mysqli_fetch_assoc($result)) {
                     $price = number_format($row['price'], 2);
-                    echo '<option' . ($product == $row['id'] ? ' selected' : '') . ' value="' . $row['id'] . '">' . $row['name'] . ' - ' . $price . ' лв.' . '</option>';
+                    echo '<option' . ($product == $row['id'] ? ' selected' : '') . ' value="' . $row['id'] . '">' . $row['id'] . ' - ' . $row['name'] . ' - ' . $price . ' лв.' . '</option>';
                 }
 
                 ?>

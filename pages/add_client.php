@@ -51,6 +51,7 @@ if (isset($_POST['add'])) {
 
                 require_once '../dao/client_type_DAO.php';
                 $clientTypesDAO = new ClientTypeDAO($connection);
+
                 $result = $clientTypesDAO->getAllClientTypes();
 
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -76,7 +77,7 @@ if (isset($_POST['add'])) {
 
                 while ($row = mysqli_fetch_assoc($result)) {
                     $price = number_format($row['price'], 2);
-                    echo '<option value="' . $row['id'] . '">' . $row['name'] . '  ' . $price .  'лв. </option>';
+                    echo '<option value="' . $row['id'] . '">' . $row['id'] . ' ' . $row['name'] . '  ' . $price .  'лв. </option>';
                 }
 
                 ?>
